@@ -6,7 +6,6 @@ const CreatePage = () => {
 
 
     const createHandler = (data: any) => {
-        console.log(data);
         request(`https://localhost:44396/Author/`, { method: 'PUT', data })
             .then(() => {
                 history.push('/Author/')
@@ -33,15 +32,15 @@ const CreatePage = () => {
                 </Form.Item>
 
                 <Form.Item name="academicDegree">
-                    <Select options={[
-                        { value: 1, label: 'Bachelor' },
-                        { value: 2, label: 'Magister' },
-                        { value: 3, label: 'Aspirant' },
-                        { value: 4, label: 'Candidat' },
-                        { value: 5, label: 'Specialist' },
-                        { value: 6, label: 'Doctor' },
+                    <Select allowClear options={[
+                        { value: 0, label: 'Bachelor' },
+                        { value: 1, label: 'Magister' },
+                        { value: 2, label: 'Aspirant' },
+                        { value: 3, label: 'Candidat' },
+                        { value: 4, label: 'Specialist' },
+                        { value: 5, label: 'Doctor' },
                     ]}
-                        defaultValue={1}
+                        defaultValue={0}
                     />
                 </Form.Item>
                 <Button htmlType="submit" type="primary">Добавить</Button>
