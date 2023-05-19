@@ -1,4 +1,5 @@
-import { request, history } from "@umijs/max";
+import request from "@/utils/request";
+import { history } from "@umijs/max";
 import { Button, Form, Input, Select } from "antd";
 
 

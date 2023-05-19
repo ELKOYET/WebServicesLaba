@@ -1,5 +1,6 @@
+import request from "@/utils/request";
 import { useParams, history } from "@umijs/max";
-import { request } from "@umijs/max";
+
 import { Button, Form, Input, Select, Spin } from "antd";
 import React from "react";
 

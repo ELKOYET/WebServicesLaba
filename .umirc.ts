@@ -26,6 +26,10 @@ export default defineConfig({
       path: '/Author/edit/:id',
       component: './Author/edit/[id]',
     },
+    {
+      path: '/Auth',
+      component: './Auth'
+    }
     
   ], 
   npmClient: 'npm', 
