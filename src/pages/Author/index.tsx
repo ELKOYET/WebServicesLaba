@@ -1,12 +1,14 @@
 
 import request from '@/utils/request';
 import { Pie } from '@ant-design/charts';
+import { useModel } from '@umijs/max';
 import { Link } from '@umijs/max';
 import { Button, Form, Input, Select } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import React from 'react';
 
 export default function HomePage() {
+  const { initialState } = useModel("@@initialState")
   const [dataSource, setDatasourse] = React.useState([])
   const [load, setLoad] = React.useState(false)
   const [dataChart, setDataChart] = React.useState([]);
@@ -82,7 +84,7 @@ export default function HomePage() {
     },
     {
       title: 'Position',
-      dataIndex: 'positionId',
+      dataIndex: 'position',
     },
     {
       title: 'academicDegree',

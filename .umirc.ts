@@ -26,10 +26,75 @@ export default defineConfig({
       path: '/Author/edit/:id',
       component: './Author/edit/[id]',
     },
+
+    
+
+
+    {
+      path: '/Layouts',
+      component: './',
+    },
+
+    {
+      path: '/Diplom',
+      component: './Diplom',
+    },
+    {
+      path: '/Diplom/create',
+      component: './Diplom/create',
+    },
+    {
+      path: '/Diplom/edit/:id',
+      component: './Diplom/edit/[id]',
+    },
+
+
+    {
+      path: '/Direction',
+      component: './Direction',
+    },
+    {
+      path: '/Direction/create',
+      component: './Direction/create',
+    },
+    {
+      path: '/Direction/edit/:id',
+      component: './Direction/edit/[id]',
+    },
+
+
+    {
+      path: '/Position',
+      component: './Position',
+    },
+    {
+      path: '/Position/create',
+      component: './Position/create',
+    },
+    {
+      path: '/Position/edit/:id',
+      component: './Position/edit/[id]',
+    },
+
+
+
+
     {
       path: '/Auth',
       component: './Auth'
-    }
+    },
+    {
+      path: '/register',
+      component: './register'
+    },
+    {
+      path: '/userEdit',
+      component: './userEdit',
+    },
+    {
+      path: '/userEdit2',
+      component: './userEdit2',
+    },
     
   ], 
   npmClient: 'npm', 

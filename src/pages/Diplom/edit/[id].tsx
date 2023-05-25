@@ -1,9 +1,11 @@
 import request from "@/utils/request";
 import { useParams, history } from "@umijs/max";
 
-import { Button, Form, Input, Select, Spin } from "antd";
+import { Button, DatePicker, Form, Input, Select, Spin } from "antd";
 import React from "react";
+import moment from "moment";
 
+const dateFormat = 'YYYY/MM/DD';
 
 const EditPage = () => {
     const param = useParams()
@@ -11,34 +13,35 @@ const EditPage = () => {
     const [data, setData] = React.useState()
 
     React.useEffect(() => {
-        request(`https://localhost:44396/Author/${param.id}`).then((x) => { setData(x) });
+        request(`https://localhost:44396/Diplom/${param.id}`).then((x) => { setData(x); });
     }, []);
+
 
     const editHandler = (data: any) => {
         console.log(data);
-        request(`https://localhost:44396/Author/${param.id}`, { method: 'POST', data })
+        request(`https://localhost:44396/Diplom/${param.id}`, { method: 'POST', data })
             .then(() => {
-                history.push('/Author/')
+                history.push('/Diplom/')
             })
     }
     return (
         <div>
             {data ?
                 <Form onFinish={editHandler} initialValues={data} >
-                    <Form.Item name="firstName">
-                        <Input placeholder="Имя"></Input>
+                    <Form.Item name="title">
+                        <Input placeholder="Название работы"></Input>
                     </Form.Item>
 
-                    <Form.Item name="secondName">
-                        <Input placeholder="Фамилия"></Input>
+                    <Form.Item name="release" valuePropName={'release'}>
+                         <DatePicker defaultValue={moment(data.release)} />
                     </Form.Item>
 
-                    <Form.Item name="thirdName">
-                        <Input placeholder="Отчество"></Input>
+                    <Form.Item name="headName">
+                        <Input placeholder="Полное название"></Input>
                     </Form.Item>
 
-                    <Form.Item name="positionId">
-                        <Input placeholder="Должность"></Input>
+                    <Form.Item name="directionId">
+                        <Input placeholder="Направление работы"></Input>
                     </Form.Item>
 
                     <Form.Item name="academicDegree">
@@ -50,10 +53,12 @@ const EditPage = () => {
                             { value: 4, label: 'Specialist' },
                             { value: 5, label: 'Doctor' },
                         ]}
-                        
                         />
                     </Form.Item>
 
+                    <Form.Item name="authorId">
+                        <Input placeholder="АвторАйди"></Input>
+                    </Form.Item>
                     <Button htmlType="submit" type="primary">Изменить</Button>
                 </Form> : <Spin></Spin>
             }
